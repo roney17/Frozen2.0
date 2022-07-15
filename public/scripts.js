@@ -63,12 +63,12 @@ function resetBoard() {
   [firstCard, secondCard] = [null, null];
 }
 
-// (function shuffle() {
-//   cards.forEach(card => {
-//     let randomPos = Math.floor(Math.random() * 12);
-//     card.style.order = randomPos;
-//   });
-// })();
+(function shuffle() {
+  cards.forEach(card => {
+    let randomPos = Math.floor(Math.random() * 12);
+    card.style.order = randomPos;
+  });
+})();
 
 if (score === 8){
   console.log('done');
