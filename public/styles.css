@@ -7,7 +7,8 @@
 body {
   height: 100vh;
   display: flex;
-  background: #060AB2;
+  background: url('img/back2.jpg') center center no-repeat;
+  background-color: black;
 }
 
 .memory-game {
@@ -20,8 +21,8 @@ body {
 }
 
 .memory-card {
-  width: calc(16% - 10px);
-  height: 50%; /*calc(33.333% - 10px); */
+  width: calc(14% - 10px);
+  height: 40%; /*calc(33.333% - 10px); */
   margin: 5px;
   position: relative;
   transform: scale(1);
@@ -37,6 +38,7 @@ body {
 
 .memory-card.flip {
   transform: rotateY(180deg);
+  
 }
 
 .front-face,
@@ -57,5 +59,22 @@ body {
   position: absolute;
   right: 90px;
   top: 100px;
-  color: #FFF
+  color: #fff;
+  font-size: large;
+}
+.matches{
+  position: absolute;
+  bottom: 35%;
+  right: 60px;
+  height: 215px;
+  width: 160px;
+}
+.hidden {
+  animation-name: dissolve;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+}
+@keyframes dissolve {
+  from {visibility: visible;}
+  to {visibility: hidden;}
 }
