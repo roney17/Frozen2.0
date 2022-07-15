@@ -1,2 +1,98 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <title>Memory Game</title>
+
+  <link rel="stylesheet" href="../styles.css">
+</head> 
+<body>
+  <section class="memory-game">
+    <div class="memory-card" data-framework="Auna.jpeg">
+      <img class="front-face" src="img/Auna.jpeg"  />
+      <img class="back-face" src="../img/Frozen.jpg"  />
+      <img class="back-face" src="../img/Frozen.jpg" />
+    </div>
+    <div class="memory-card" data-framework="Auna.jpeg">
+      <img class="front-face" src="../img/Auna.jpeg" alt="Aurelia" />
+      <img class="back-face" src="../img/Frozen.jpg" alt="JS Badge" />
+    </div>
+
+    <div class="memory-card" data-framework="Christof">
+      <img class="front-face" src="../img/Christof.jpeg" alt="Vue" />
+      <img class="back-face" src="../img/Frozen.jpg" alt="JS Badge" />
+    </div>
+    <div class="memory-card" data-framework="Christof">
+      <img class="front-face" src="../img/Christof.jpeg" alt="Vue" />
+      <img class="back-face" src="../img/Frozen.jpg" alt="JS Badge" />
+    </div>
+
+    <div class="memory-card" data-framework="Duke">
+      <img class="front-face" src="../img/Duke.jpeg" alt="Angular" />
+      <img class="back-face" src="../img/Frozen.jpg" alt="JS Badge" />
+    </div>
+    <div class="memory-card" data-framework="Duke">
+      <img class="front-face" src="../img/Duke.jpeg" alt="Angular" />
+      <img class="back-face" src="../img/Frozen.jpg" alt="JS Badge" />
+    </div>
+
+    <div class="memory-card" data-framework="Elsa">
+      <img class="front-face" src="../img/Elsa.jpeg" alt="Ember" />
+      <img class="back-face" src="../img/Frozen.jpg" alt="JS Badge" />
+    </div>
+    <div class="memory-card" data-framework="Elsa">
+      <img class="front-face" src="../img/Elsa.jpeg" alt="Ember" />
+      <img class="back-face" src="../img/Frozen.jpg" alt="JS Badge" />
+    </div>
+
+    <div class="memory-card" data-framework="Hans">
+      <img class="front-face" src="../img/Hans.jpeg" alt="Backbone" />
+      <img class="back-face" src="../img/Frozen.jpg" alt="JS Badge" />
+    </div>
+    <div class="memory-card" data-framework="Hans">
+      <img class="front-face" src="../img/Hans.jpeg" alt="Backbone" />
+      <img class="back-face" src="../img/Frozen.jpg" alt="JS Badge" />
+    </div>
+
+    <div class="memory-card" data-framework="Monster">
+      <img class="front-face" src="../img/Monster.jpeg" alt="React" />
+      <img class="back-face" src="../img/Frozen.jpg" alt="JS Badge" />
+    </div>
+    <div class="memory-card" data-framework="Monster">
+      <img class="front-face" src="../img/Monster.jpeg" alt="React" />
+      <img class="back-face" src="../img/Frozen.jpg" alt="JS Badge" />
+    </div>
+
+    <div class="memory-card" data-framework="Olaf">
+      <img class="front-face" src="../img/Olaf.jpeg" alt="React" />
+      <img class="back-face" src="../img/Frozen.jpg" alt="JS Badge" />
+    </div>
+    <div class="memory-card" data-framework="Olaf">
+      <img class="front-face" src="../img/Olaf.jpeg" alt="React" />
+      <img class="back-face" src="../img/Frozen.jpg" alt="JS Badge" />
+    </div>
+    <div class="memory-card" data-framework="Snowmen">
+      <img class="front-face" src="../img/Snowmen.jpeg" alt="React" />
+      <img class="back-face" src="../img/Frozen.jpg" alt="JS Badge" />
+    </div>
+    <div class="memory-card" data-framework="Snowmen">
+      <img class="front-face" src="../img/Snowmen.jpeg" alt="React" />
+      <img class="back-face" src="../img/Frozen.jpg" alt="JS Badge" />
+    </div>
+    <div class="memory-card" data-framework="Sven">
+      <img class="front-face" src="../img/Sven.jpeg" alt="React" />
+      <img class="back-face" src="../img/Frozen.jpg" alt="JS Badge" />
+    </div>
+    <div class="memory-card" data-framework="Sven">
+      <img class="front-face" src="../img/Sven.jpeg" alt="React" />
+      <img class="back-face" src="../img/Frozen.jpg" alt="JS Badge" />
+    </div>
+  </section>
+  <div id="score">
+    <h2>Score</h2>
+    <p>Pairs clicked: <span id="pairsClicked">0</span></p>
+  </div>
+  <script src="../scripts.js"></script>
+</body>
+</html>
