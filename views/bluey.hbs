@@ -3,7 +3,8 @@
 <head>
     <style>
         body{
-            background-color: black;
+            background-image: linear-gradient(to bottom right, #d2ebff, 	#88cafc);
+            height: 100vh;
             position: relative;
         }
         .title{
@@ -12,7 +13,7 @@
             font-weight: 700;
             width: 100%;
             height: 100px;
-            margin-top: 80px;
+            margin-top: 20px;
             margin-bottom: 50px;
             font-size: 50px;
             text-align: center;
@@ -23,46 +24,58 @@
             display: flex;
             position: relative;
             width: 70%;
-            height: 500px;
+            height: 80vh;
             margin: auto;
             margin-top: 80px;
-            border-radius: 10px;
+            border-radius: 20px;
             align-items: center;
             justify-content: center;
-        }
-        .choose-game :nth-child(1){
-            background-color: aqua;
-            height: 200px;
-            width: 100%;
-            margin: 15px;
+            padding: auto;
         }
         .game{
             display: flex;
-            flex-grow: 1;
             justify-content: center;
-            border-radius: 50px;
-            background-color: aqua;
+            align-items: center;
+            border-radius:  20px;
             height: 200px;
             width: 100%;
             margin: 15px;
         }
+        .game:nth-child(1) img {
+            max-height: 100px;
+            margin-left: 60px;
+        }
+        .game:nth-child(2) img {
+            max-height: 150px;
+        }
+        .game:nth-child(3) img{
+          height: 100%;
+        }
+        
         img{
-            max-width: 110%;
+            max-width: 100%;
             max-height: 100%;
-            border-radius: 50px;
+            border-radius: 20px;
         }
     </style>
   <meta charset="UTF-8">
   <title>Memory Game</title>
-  <link rel="stylesheet" href="stylesheets/styles.css">
 </head> 
 <body>
     
-    <div class="title">Choose Size</div>
+    <div class="title">{{size}} </div>
+    <ul style="color: black; size: 15em;">yo 
+      {{#each blueyCharacters}}
+        <li style="color: black;">
+          {{this.name}}</li>
+          {{/each}}
+    </ul>
     <div class="choose-game">
-        <div class="game"><a href="/frozen"><img src="img/frozen2.jpg"></a></div>
-       <div class="game"> <a href="/bluey"><img src="img/bluey.jpg"></a></div>
-       <div class="game"> <a href="/phineas"><img src="img/phineas.jpg"></a></div>
+        <div class="game"><a id="small" href="/bluey/small"><img src="../img/bluey.jpg"></a></div>
+       <div class="game"> <a id="medium" href="/bluey/medium"><img src="../img/bluey.jpg"></a></div>
+       <div class="game"> <a id="large" href="/bluey/large"><img src="../img/bluey.jpg"></a></div>
     </div>
+    
+    <script src="../javascripts/bluey.js"></script>
 </body>
 </html>
