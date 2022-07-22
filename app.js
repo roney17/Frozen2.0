@@ -5,7 +5,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var chooseRouter = require('./routes/choose');
+var frozenRouter = require('./routes/frozen');
 
 var app = express();
 
@@ -19,8 +20,18 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/frozen', frozenRouter);
+app.get('/frozen', function(req, res, next) {
+    res.render('frozen', { title: 'Frozen2.0' });
+})
+app.get('/bluey', function(req, res, next) {
+  res.render('bluey', { title: 'bluey' });
+})
+app.get('/phineas', function(req, res, next) {
+  res.render('phineas', { title: 'phineas' });
+})
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -38,4 +49,5 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 app.listen(3000);
+console.log('Server running on port 3000');
 module.exports = app;

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body{
+            background-color: black;
+            position: relative;
+        }
+        .title{
+            position: absolute;
+            color: black;
+            font-weight: 700;
+            width: 100%;
+            height: 100px;
+            margin-top: 80px;
+            margin-bottom: 50px;
+            font-size: 50px;
+            text-align: center;
+            align-items: center;
+        }
+        .choose-game{
+            background-color: transparent;
+            display: flex;
+            position: relative;
+            width: 70%;
+            height: 500px;
+            margin: auto;
+            margin-top: 80px;
+            border-radius: 10px;
+            align-items: center;
+            justify-content: center;
+        }
+        .game{
+            display: flex;
+            flex-grow: 1;
+            justify-content: center;
+            border-radius: 50px;
+            background-color: aqua;
+            height: 200px;
+            width: 100%;
+            margin: 15px;
+        }
+        img{
+            max-width: 110%;
+            max-height: 100%;
+            border-radius: 50px;
+        }
+    </style>
+  <meta charset="UTF-8">
+  <title>Memory Game</title>
+  <link rel="stylesheet" href="stylesheets/styles.css">
+</head> 
+<body>
+    
+    <div class="title">Choose Game</div>
+    <div class="choose-game">
+        <div class="game"><a href="/frozen"><img src="img/frozen2.jpg"></a></div>
+       <div class="game"> <a href="/bluey"><img src="img/bluey.jpg"></a></div>
+       <div class="game"> <a href="/phineas"><img src="img/phineas.jpg"></a></div>
+    </div>
+</body>
+</html>
