@@ -21,14 +21,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 /* GET bluey page. */
 app.get('/bluey', function(req, res, next) {
-  res.render('bluey', { title: 'bluey' });
-
+  res.render('bluey', {blueyCharacters});
 });
-const people = [
-  { name: 'John', age: 20 },
-  { name: 'Jane', age: 21 },
-  { name: 'Bob', age: 22 },
-];
 const blueyCharacters = 
   //get each file name from directory
   fs.readdirSync('./public/img/bluey/').map(file => {
@@ -36,19 +30,19 @@ const blueyCharacters =
       name: file
     };
   })
-app.get('/bluey/small', function(req, res, next) {
-  res.locals.size = 'small';
-  res.render('bluey', {blueyCharacters});
+// app.get('/bluey/small', function(req, res, next) {
+//   res.locals.size = 'small';
+//   res.render('bluey', {blueyCharacters});
 
-});
-app.get('/bluey/medium', function(req, res, next) {
-  res.locals.size = 'medium';
-  res.render('bluey', { title: 'bluey' });
-});
-app.get('/bluey/large', function(req, res, next) {
-  res.locals.size = 'large';
-  res.render('bluey', { title: 'bluey' });
-});
+// });
+// app.get('/bluey/medium', function(req, res, next) {
+//   res.locals.size = 'medium';
+//   res.render('bluey', { title: 'bluey' });
+// });
+// app.get('/bluey/large', function(req, res, next) {
+//   res.locals.size = 'large';
+//   res.render('bluey', { title: 'bluey' });
+// });
 app.get('/frozen', function(req, res, next) {
   res.render('frozen', { title: 'frozen' });
 });
