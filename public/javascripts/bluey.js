@@ -1,8 +1,12 @@
 function startGame(){
     document.getElementById("toggle").style.display = "none";
     document.getElementById("memory-game").style.display = "flex";
+    document.getElementById("score").style.display = "flex";
+    document.getElementById("matches").style.display = "flex";
+    document.getElementById("arrow").style.display = "flex";
 
 }
+
 const cards = document.querySelectorAll('.memory-card');
 let pairsClicked = document.querySelector('#pairsClicked');
 let matchedCard = document.getElementById('#matchedCard');
@@ -39,19 +43,18 @@ function checkForMatch() {
 function disableCards() {
   firstCard.removeEventListener('click', flipCard);
   secondCard.removeEventListener('click', flipCard);
-  document.getElementById("matchedCard").setAttribute("src", "img/" + firstCard.dataset.character + ".png");
+  document.getElementById("matchedCard").setAttribute("src", "../img/bluey/" + firstCard.dataset.character);
   firstCard.classList.add("hidden");
   secondCard.classList.add("hidden");
   pointScored();
   resetBoard();
-}
+} 
 function pointScored() {
   score = score + 1;
   pairsClicked.innerHTML = score;
 }
 function unflipCards() {
   lockBoard = true;
-
   setTimeout(() => {
     firstCard.classList.remove('flip');
     secondCard.classList.remove('flip');
@@ -64,12 +67,12 @@ function resetBoard() {
   [firstCard, secondCard] = [null, null];
 }
 
-(function shuffle() {
-  cards.forEach(card => {
-    let randomPos = Math.floor(Math.random() * 12);
-    card.style.order = randomPos;
-  });
-})();
+// (function shuffle() {
+//   cards.forEach(card => {
+//     let randomPos = Math.floor(Math.random() * 12);
+//     card.style.order = randomPos;
+//   });
+// })();
 
 if (score === 8){
   console.log('done');
@@ -78,3 +81,8 @@ if (score === 8){
 //   console.log(file);
 // }
 cards.forEach(card => card.addEventListener('click', flipCard));
+// function small(){
+//   //delay the display of the cards
+//   setTimeout(function(){
+//   cards.forEach (card) {
+// }

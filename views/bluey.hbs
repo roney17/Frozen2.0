@@ -65,7 +65,7 @@
         .memory-game{
           width: 1340px;
           height: 400px;
-          margin: 80px auto;
+          margin: 40px auto;
           margin-left: 85px;
           display: flex;
           flex-wrap: wrap;
@@ -76,7 +76,7 @@
         }         
         .memory-card {
           width: calc(15% - 10px);
-          height: 25%; /*calc(33.333% - 10px); */
+          height: 27%; /*calc(33.333% - 10px); */
           margin: 5px;
           position: relative;
           transform: scale(1);
@@ -105,6 +105,27 @@
         .front-face {
           transform: rotateY(180deg);
         }
+        .arrow{
+          position: absolute;
+          top: 0;
+          left: 46%;
+          max-width: 25px;
+        }
+        #score{
+          position: absolute;
+          left: 45px;
+          top: 10px;
+        }
+        .matches{
+        position: absolute;
+        top: 5px;
+        right: 55px;
+        height: 165px;
+        width: 150px;
+      }
+      .arrow, #score, .matches{
+        display: none;
+      }
     </style>
   <meta charset="UTF-8">
   <title>Memory Game</title>
@@ -113,11 +134,14 @@
     <div id="toggle">
       <div class="title">Select Size </div>
       <div class="choose-game">
-        <div class="game" onclick="startGame()"><a id="small"><img src="../img/bluey.jpg"></a></div>
+        <div class="game" onclick="startGame(); small();"><a id="small"><img src="../img/bluey.jpg"></a></div>
         <div class="game" onclick="startGame()"> <a id="medium" ><img src="../img/bluey.jpg"></a></div>
         <div class="game" onclick="startGame()"> <a id="large"><img src="../img/bluey.jpg"></a></div>
       </div>
     </div>
+  <div><a href="/"><img class="arrow" id="arrow" src="img/backarrow.png"></a></div>
+  <div id="score"><h2>Score: <span id="pairsClicked">0</span></h2></div>
+  <div class="matches" id="matches" data-character="match"><img class="back-face" id="matchedCard" data-character="match" src="../img/blueyback.png"></div>
     <section class="memory-game" id="memory-game" style="display: none;">
       {{#each blueyCharacters}}
         <div class="memory-card" data-character="{{this.name}}">
@@ -127,8 +151,11 @@
         <div class="memory-card" data-character="{{this.name}}">
           <img class="front-face" src="../img/bluey/{{{this.name}}}">
           <img class="back-face" src="../img/blueyback.png">
-        </div>
+  </div>
       {{/each}}
+
+      
+
     </section>
     
     <script src="../javascripts/bluey.js"></script>
