@@ -75,7 +75,8 @@
 
         }         
         .memory-card {
-          width: calc(15% - 10px);
+          display: none;
+          width: calc(16% - 10px);
           height: 27%; /*calc(33.333% - 10px); */
           margin: 5px;
           position: relative;
@@ -120,11 +121,14 @@
         position: absolute;
         top: 5px;
         right: 55px;
-        height: 165px;
-        width: 150px;
+        height: 125px;
+        width: 170px;
       }
       .arrow, #score, .matches{
         display: none;
+      }
+      .visible{
+        display: "flex";
       }
     </style>
   <meta charset="UTF-8">
@@ -135,8 +139,8 @@
       <div class="title">Select Size </div>
       <div class="choose-game">
         <div class="game" onclick="startGame(); small();"><a id="small"><img src="../img/bluey.jpg"></a></div>
-        <div class="game" onclick="startGame()"> <a id="medium" ><img src="../img/bluey.jpg"></a></div>
-        <div class="game" onclick="startGame()"> <a id="large"><img src="../img/bluey.jpg"></a></div>
+        <div class="game" onclick="startGame(); medium()"> <a id="medium" ><img src="../img/bluey.jpg"></a></div>
+        <div class="game" onclick="startGame(); large()"> <a id="large"><img src="../img/bluey.jpg"></a></div>
       </div>
     </div>
   <div><a href="/"><img class="arrow" id="arrow" src="img/backarrow.png"></a></div>

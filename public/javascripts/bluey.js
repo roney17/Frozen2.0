@@ -1,10 +1,9 @@
 function startGame(){
     document.getElementById("toggle").style.display = "none";
-    document.getElementById("memory-game").style.display = "flex";
     document.getElementById("score").style.display = "flex";
     document.getElementById("matches").style.display = "flex";
     document.getElementById("arrow").style.display = "flex";
-
+    
 }
 
 const cards = document.querySelectorAll('.memory-card');
@@ -67,12 +66,12 @@ function resetBoard() {
   [firstCard, secondCard] = [null, null];
 }
 
-// (function shuffle() {
-//   cards.forEach(card => {
-//     let randomPos = Math.floor(Math.random() * 12);
-//     card.style.order = randomPos;
-//   });
-// })();
+(function shuffle() {
+  cards.forEach(card => {
+    let randomPos = Math.floor(Math.random() * 12);
+    card.style.order = randomPos;
+  });
+})();
 
 if (score === 8){
   console.log('done');
@@ -81,8 +80,26 @@ if (score === 8){
 //   console.log(file);
 // }
 cards.forEach(card => card.addEventListener('click', flipCard));
-// function small(){
-//   //delay the display of the cards
-//   setTimeout(function(){
-//   cards.forEach (card) {
-// }
+function small(){
+    const myNodelist = document.getElementsByClassName("memory-card");
+    for (let i = 0; i < 14; i++) {
+      myNodelist[i].style.display = "flex";
+    }
+    document.getElementById("memory-game").style.display = "flex";
+}
+function medium(){
+  const myNodelist = document.getElementsByClassName("memory-card");
+  for (let i = 0; i < 20; i++) {
+    myNodelist[i].style.display = "flex";
+  }
+  document.getElementById("memory-game").style.display = "flex";
+}
+function large(){
+  const myNodelist = document.getElementsByClassName("memory-card");
+  //for nodelist length
+  for (let i = 0; i < 34; i++) {
+    myNodelist[i].style.display = "flex";
+
+  document.getElementById("memory-game").style.display = "flex";
+}
+}
