@@ -1,227 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+      *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+        body{
+          height: 100vh;
+          display: flex;
+          background-image: linear-gradient(to bottom right, #d2ebff, 	#88cafc);
+        }
+        .title{
+            position: absolute;
+            color: black;
+            font-weight: 700;
+            width: 100%;
+            height: 100px;
+            margin-top: 20px;
+            margin-bottom: 50px;
+            font-size: 50px;
+            text-align: center;
+            align-items: center;
+        }
+        .choose-game{
+            background-color: transparent;
+            display: flex;
+            position: relative;
+            width: 70%;
+            height: 80vh;
+            margin: auto;
+            margin-top: 80px;
+            border-radius: 20px;
+            align-items: center;
+            justify-content: center;
+            padding: auto;
+        }
+        .game{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius:  20px;
+            height: 200px;
+            width: 100%;
+            margin: 15px;
+        }
+        .game:nth-child(1) img {
+            max-height: 100px;
+            margin-left: 60px;
+        }
+        .game:nth-child(2) img {
+            max-height: 150px;
+        }
+        .game:nth-child(3) img{
+          height: 100%;
+        }
+        
+        img{
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 20px;
+        }
+        .memory-game{
+          width: 1340px;
+          height: 400px;
+          margin: 40px auto;
+          margin-left: 85px;
+          display: flex;
+          flex-wrap: wrap;
+          perspective: 1340px;
+          justify-content: center;
+          align-items: center;
+
+        }         
+        .memory-card {
+          display: none;
+          width: calc(16% - 10px);
+          height: 27%; /*calc(33.333% - 10px); */
+          margin: 5px;
+          position: relative;
+          transform: scale(1);
+          transform-style: preserve-3d;
+          transition: transform .5s;
+          box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+        }
+        .memory-card:active {
+          transform: scale(0.97);
+          transition: transform .2s;
+        }
+        .memory-card.flip {
+          transform: rotateY(180deg);
+          
+        }
+        .front-face,
+        .back-face {
+          width: 100%;
+          height: 100%;
+          padding: 20px;
+          position: absolute;
+          border-radius: 5px;
+          background: #1C7CCC;
+          backface-visibility: hidden;
+        } 
+        .front-face {
+          transform: rotateY(180deg);
+        }
+        .arrow{
+          display: flex;
+          position: absolute;
+          top: 0;
+          left: 46%;
+          max-width: 25px;
+        }
+        .arrowSize{
+          position: absolute;
+          top: 80px;
+          left: 49%;
+          max-width: 45px;
+        }
+        #score{
+          position: absolute;
+          left: 45px;
+          top: 10px;
+        }
+        .matches{
+        position: absolute;
+        top: 5px;
+        right: 55px;
+        height: 125px;
+        width: 170px;
+      }
+      #score, .matches{
+        display: none;
+      }
+      .visible{
+        display: "flex";
+      }
+    
+    </style>
   <meta charset="UTF-8">
-
   <title>Memory Game</title>
-
-  <link rel="stylesheet" href="stylesheets/styles.css">
 </head> 
 <body>
-  <section class="memory-game">
-    <div class="memory-card" data-character="Auna">
-      <img class="front-face" src="img/Auna.jpeg">
-      <img class="back-face" src="img/Frozen.jpg">
+    <div id="toggle">
+      <div class="title">Select Size </div>
+      <div><a href="/"><img class="arrowSize" id="arrow" src="img/backarrow.png"></a></div>
+      <div class="choose-game">
+        <div class="game" onclick="startGame(); small();"><a id="small"><img src="../img/phineas.jpg"></a></div>
+        <div class="game" onclick="startGame(); medium()"> <a id="medium" ><img src="../img/phineas.jpg"></a></div>
+        <div class="game" onclick="startGame(); large()"> <a id="large"><img src="../img/phineas.jpg"></a></div>
+      </div>
     </div>
-    <div class="memory-card" data-character="Auna">
-      <img class="front-face" src="img/Auna.jpeg">
-      <img class="back-face" src="img/Frozen.jpg">
-    </div>
-
-    <div class="memory-card" data-character="Christof">
-      <img class="front-face" src="img/Christof.jpeg">
-      <img class="back-face" src="img/Frozen.jpg">
-    </div>
-    <div class="memory-card" data-character="Christof">
-      <img class="front-face" src="img/Christof.jpeg">
-      <img class="back-face" src="img/Frozen.jpg">
-    </div>
-
-    <div class="memory-card" data-character="Duke">
-      <img class="front-face" src="img/Duke.jpeg">
-      <img class="back-face" src="img/Frozen.jpg">
-    </div>
-    <div class="memory-card" data-character="Duke">
-      <img class="front-face" src="img/Duke.jpeg">
-      <img class="back-face" src="img/Frozen.jpg">
-    </div>
-
-    <div class="memory-card" data-character="Elsa">
-      <img class="front-face" src="img/Elsa.jpeg">
-      <img class="back-face" src="img/Frozen.jpg">
-    </div>
-    <div class="memory-card" data-character="Elsa">
-      <img class="front-face" src="img/Elsa.jpeg">
-      <img class="back-face" src="img/Frozen.jpg">
-    </div>
-
-    <div class="memory-card" data-character="Hans">
-      <img class="front-face" src="img/Hans.jpeg">
-      <img class="back-face" src="img/Frozen.jpg">
-    </div>
-    <div class="memory-card" data-character="Hans">
-      <img class="front-face" src="img/Hans.jpeg">
-      <img class="back-face" src="img/Frozen.jpg">
-    </div>
-
-    <div class="memory-card" data-character="Monster">
-      <img class="front-face" src="img/Monster.jpeg">
-      <img class="back-face" src="img/Frozen.jpg">
-    </div>
-    <div class="memory-card" data-character="Monster">
-      <img class="front-face" src="img/Monster.jpeg">
-      <img class="back-face" src="img/Frozen.jpg">
-    </div>
-
-    <div class="memory-card" data-character="Olaf">
-      <img class="front-face" src="img/Olaf.jpeg">
-      <img class="back-face" src="img/Frozen.jpg">
-    </div>
-    <div class="memory-card" data-character="Olaf">
-      <img class="front-face" src="img/Olaf.jpeg">
-      <img class="back-face" src="img/Frozen.jpg">
-    </div>
-    <div class="memory-card" data-character="Snowmen">
-      <img class="front-face" src="img/Snowmen.jpeg" />
-      <img class="back-face" src="img/Frozen.jpg">
-    </div>
-    <div class="memory-card" data-character="Snowmen">
-      <img class="front-face" src="img/Snowmen.jpeg">
-      <img class="back-face" src="img/Frozen.jpg">
-    </div>
-    <div class="memory-card" data-character="Sven">
-      <img class="front-face" src="img/Sven.jpeg">
-      <img class="back-face" src="img/Frozen.jpg">
-    </div>
-    <div class="memory-card" data-character="Sven">
-      <img class="front-face" src="img/Sven.jpeg">
-      <img class="back-face" src="img/Frozen.jpg">
-    </div>
-    <div class="memory-card" data-character="Agnarr">
-      <img class="front-face" src="img/Agnarr.jpeg" alt="agnarr" />
-      <img class="back-face" src="../img/Frozen.jpg" alt="back" />
-    </div>
-    <div class="memory-card" data-character="Agnarr">
-      <img class="front-face" src="img/Agnarr.jpeg" alt="agnarr" />
-      <img class="back-face" src="../img/Frozen.jpg" alt="back" />
-    </div>
-    <div class="memory-card" data-character="Iduna">
-      <img class="front-face" src="img/iduna.jpeg" alt="iduna" />
-      <img class="back-face" src="img/Frozen.jpg" alt="back" />
-    </div>
-    <div class="memory-card" data-character="Iduna">
-      <img class="front-face" src="img/iduna.jpeg" alt="iduna" />
-      <img class="back-face" src="img/Frozen.jpg" alt="back" />
-    </div>
-    <div class="memory-card" data-character="lizard">
-      <img class="front-face" src="/img/lizard.jpeg" alt="iduna" />
-      <img class="back-face" src="img/Frozen.jpg" alt="back" />
-    </div>
-    <div class="memory-card" data-character="lizard">
-      <img class="front-face" src="img/lizard.jpeg" alt="iduna" />
-      <img class="back-face" src="img/Frozen.jpg" alt="back" />
-    </div>
-    <div class="memory-card" data-character="mattias">
-      <img class="front-face" src="../img/mattias.jpeg" alt="iduna" />
-      <img class="back-face" src="../img/Frozen.jpg" alt="back" />
-    </div>
-    <div class="memory-card" data-character="mattias">
-      <img class="front-face" src="img/mattias.jpeg" alt="iduna" />
-      <img class="back-face" src="img/Frozen.jpg" alt="back" />
-    </div>
-    <div class="memory-card" data-character="oaken">
-      <img class="front-face" src="img/oaken.jpeg" alt="iduna" />
-      <img class="back-face" src="img/Frozen.jpg" alt="back" />
-    </div>
-    <div class="memory-card" data-character="oaken">
-      <img class="front-face" src="img/oaken.jpeg" alt="iduna" />
-      <img class="back-face" src="img/Frozen.jpg" alt="back" />
-    </div>
-    <div class="memory-card" data-character="bowtie">
-      <img class="front-face" src="img/bowtie.jpeg" alt="bowtie" />
-      <img class="back-face" src="img/Frozen.jpg" alt="back" />
-    </div>
-    <div class="memory-card" data-character="bowtie">
-      <img class="front-face" src="img/bowtie.jpeg" alt="bowtie" />
-      <img class="back-face" src="img/Frozen.jpg" alt="back" />
-    </div>
-    <div class="memory-card" data-character="cat">
-      <img class="front-face" src="img/cat.jpeg" alt="cat" />
-      <img class="back-face" src="img/Frozen.jpg" alt="back" />
-    </div>
-    <div class="memory-card" data-character="cat">
-      <img class="front-face" src="img/cat.jpeg" alt="cat" />
-      <img class="back-face" src="img/Frozen.jpg" alt="back" />
-    </div>
-    <div class="memory-card" data-character="duo">
-      <img class="front-face" src="img/duo.jpeg" alt="duo" />
-      <img class="back-face" src="img/Frozen.jpg" alt="back" />
-    </div>
-    <div class="memory-card" data-character="duo">
-      <img class="front-face" src="img/duo.jpeg" alt="duo" />
-      <img class="back-face" src="img/Frozen.jpg" alt="back" />
-    </div>
-    <div class="memory-card" data-character="horse">
-      <img class="front-face" src="img/horse.jpeg" alt="horse" />
-      <img class="back-face" src="img/Frozen.jpg" alt="back" />
-    </div>
-    <div class="memory-card" data-character="horse">
-      <img class="front-face" src="img/horse.jpeg" alt="horse" />
-      <img class="back-face" src="img/Frozen.jpg" alt="back" />
-    </div>
-    <div class="memory-card" data-character="kids">
-      <img class="front-face" src="img/kids.jpeg" alt="kids" />
-      <img class="back-face" src="img/Frozen.jpg" alt="back" />
-    </div>
-    <div class="memory-card" data-character="kids">
-      <img class="front-face" src="img/kids.jpeg" alt="kids" />
-      <img class="back-face" src="img/Frozen.jpg" alt="back" />
-    </div>
-    <div class="memory-card" data-character="nose">
-      <img class="front-face" src="img/nose.jpeg" alt="nose" />
-      <img class="back-face" src="img/Frozen.jpg" alt="back" />
-    </div>
-    <div class="memory-card" data-character="nose">
-      <img class="front-face" src="img/nose.jpeg" alt="nose" />
-      <img class="back-face" src="img/Frozen.jpg" alt="back" />
-    </div>
-    <div class="memory-card" data-character="slide">
-      <img class="front-face" src="img/slide.jpeg" alt="slide" />
-      <img class="back-face" src="img/Frozen.jpg" alt="back" />
-    </div>
-    <div class="memory-card" data-character="slide">
-      <img class="front-face" src="img/slide.jpeg" alt="slide" />
-      <img class="back-face" src="img/Frozen.jpg" alt="back" />
-    </div>
-    <div class="memory-card" data-character="surprise">
-      <img class="front-face" src="img/surprise.jpeg" alt="surprise" />
-      <img class="back-face" src="img/Frozen.jpg" alt="back" />
-    </div>
-    <div class="memory-card" data-character="surprise">
-      <img class="front-face" src="img/surprise.jpeg" alt="surprise" />
-      <img class="back-face" src="img/Frozen.jpg" alt="back" />
-    </div>
-    <div class="memory-card" data-character="trio">
-      <img class="front-face" src="img/trio.jpeg" alt="trio" />
-      <img class="back-face" src="img/Frozen.jpg" alt="back" />
-    </div>
-    <div class="memory-card" data-character="trio">
-      <img class="front-face" src="img/trio.jpeg" alt="trio" />
-      <img class="back-face" src="img/Frozen.jpg" alt="back" />
-    </div>
-    <div class="memory-card" data-character="white">
-      <img class="front-face" src="img/white.jpeg" alt="white" />
-      <img class="back-face" src="img/Frozen.jpg" alt="back" />
-    </div>
-    <div class="memory-card" data-character="white">
-      <img class="front-face" src="img/white.jpeg" alt="white" />
-      <img class="back-face" src="img/Frozen.jpg" alt="back" />
-    </div>
-    <div class="memory-card" data-character="troll">
-      <img class="front-face" src="img/troll.jpeg" alt="iduna" />
-      <img class="back-face" src="img/Frozen.jpg" alt="back" />
-    </div>
-    <div class="memory-card" data-character="troll">
-      <img class="front-face" src="img/troll.jpeg" alt="iduna" />
-      <img class="back-face" src="img/Frozen.jpg" alt="back" />
-    </div>
-  </section>
-  <div id="score">
-    <h2>Score: <span id="pairsClicked">0</span></h2>
+  <div><a href="/phineas"><img class="arrow" id="arrow" src="img/backarrow.png"></a></div>
+  <div id="score"><h2>Score: <span id="pairsClicked">0</span></h2></div>
+  <div class="matches" id="matches" data-character="match"><img class="back-face" id="matchedCard" data-character="match" src="../img/phineas.png"></div>
+    <section class="memory-game" id="memory-game" style="display: none;">
+      {{#each phineasCharacters}}
+        <div class="memory-card" data-character="{{this.name}}">
+          <img class="front-face" src="../img/phineas/{{{this.name}}}">
+          <img class="back-face" src="../img/phineas.png">
+        </div>
+        <div class="memory-card" data-character="{{this.name}}">
+          <img class="front-face" src="../img/phineas/{{{this.name}}}">
+          <img class="back-face" src="../img/phineas.png">
   </div>
-  <div class="matches" data-character="match">
-    <img class="back-face" id="matchedCard" data-character="match" src="img/Frozen.jpg">
-  </div>
-  <script src="javascripts/scripts.js"></script>
+      {{/each}}
+
+      
+
+    </section>
+    
+    <script src="../javascripts/phineas.js"></script>
 </body>
 </html>

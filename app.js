@@ -21,9 +21,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // routes
 app.use('/', indexRouter);
+
 /* GET bluey page. */
 app.get('/bluey', function(req, res, next) {
   res.render('bluey', {blueyCharacters});
+});
+app.get('/phineas', function(req, res, next) {
+  res.render('phineas', {phineasCharacters});
 });
 const blueyCharacters = 
   //get each file name from directory
@@ -32,26 +36,16 @@ const blueyCharacters =
       name: file
     };
   })
-// app.get('/bluey/small', function(req, res, next) {
-//   res.locals.size = 'small';
-//   res.render('bluey', {blueyCharacters});
-
-// });
-// app.get('/bluey/medium', function(req, res, next) {
-//   res.locals.size = 'medium';
-//   res.render('bluey', { title: 'bluey' });
-// });
-// app.get('/bluey/large', function(req, res, next) {
-//   res.locals.size = 'large';
-//   res.render('bluey', { title: 'bluey' });
-// });
+  const phineasCharacters = 
+  //get each file name from directory
+  fs.readdirSync('./public/img/phineas').map(file => {
+    return {
+      name: file
+    };
+  })
 app.get('/frozen', function(req, res, next) {
   res.render('frozen', { title: 'frozen' });
 });
-app.get('/phineas', function(req, res, next) {
-  res.render('phineas', { title: 'phineas' });
-});
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
