@@ -66,7 +66,7 @@
           width: 1340px;
           height: 400px;
           margin: 40px auto;
-          margin-left: 85px;
+          margin-left: 65px;
           display: flex;
           flex-wrap: wrap;
           perspective: 1340px;
@@ -76,14 +76,15 @@
         }         
         .memory-card {
           display: none;
-          width: calc(16% - 10px);
-          height: 27%; /*calc(33.333% - 10px); */
+          width: calc(18% - 10px);
+          height: 40%; /*calc(33.333% - 10px); */
           margin: 5px;
           position: relative;
           transform: scale(1);
           transform-style: preserve-3d;
           transition: transform .5s;
           box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+          aspect-ratio: 1;
         }
         .memory-card:active {
           transform: scale(0.97);
@@ -95,7 +96,7 @@
         }
         .front-face,
         .back-face {
-          width: 100%;
+          min-width: 100%;
           height: 100%;
           padding: 20px;
           position: absolute;
@@ -143,7 +144,12 @@
   <title>Memory Game</title>
 </head> 
 <body>
-    <div id="toggle">
+    
+  <div><a href="/"><img class="arrow" id="arrow" src="img/backarrow.png"></a></div>
+  <div id="score"><h2>Score: <span id="pairsClicked">0</span></h2></div>
+  <div class="matches" id="matches" data-character="match"><img class="back-face" id="matchedCard" data-character="match" src="../img/phineas.png"></div>
+
+  <div id="toggle">
       <div class="title">Select Size </div>
       <div><a href="/"><img class="arrowSize" id="arrow" src="img/backarrow.png"></a></div>
       <div class="choose-game">
@@ -152,9 +158,7 @@
         <div class="game" onclick="startGame(); large()"> <a id="large"><img src="../img/phineas.jpg"></a></div>
       </div>
     </div>
-  <div><a href="/phineas"><img class="arrow" id="arrow" src="img/backarrow.png"></a></div>
-  <div id="score"><h2>Score: <span id="pairsClicked">0</span></h2></div>
-  <div class="matches" id="matches" data-character="match"><img class="back-face" id="matchedCard" data-character="match" src="../img/phineas.png"></div>
+
     <section class="memory-game" id="memory-game" style="display: none;">
       {{#each phineasCharacters}}
         <div class="memory-card" data-character="{{this.name}}">

@@ -6,9 +6,10 @@ let lockBoard = false;
 let firstCard, secondCard;
 let score = 0;
 function startGame(){
-  alert("Ready?")
+  document.getElementById("toggle").style.display = "none";
+  document.getElementById("score").style.display = "flex";
+  document.getElementById("arrow").style.display = "flex";
 }
-// startGame();
 function flipCard() {
   if (lockBoard) return;
   if (this === firstCard) return;
@@ -77,3 +78,35 @@ if (score === 8){
 //   console.log(file);
 // }
 cards.forEach(card => card.addEventListener('click', flipCard));
+
+function small(){
+  const myNodelist = document.getElementsByClassName("memory-card");
+  for (let i = 0; i < 14; i++) {
+    myNodelist[i].style.display = "flex";
+    myNodelist[i].style.width = "13%";
+    myNodelist[i].style.height = "60%";
+
+  }
+  
+}
+function medium(){
+const myNodelist = document.getElementsByClassName("memory-card");
+for (let i = 0; i < 20; i++) {
+  myNodelist[i].style.display = "flex";
+  myNodelist[i].style.width = "14%";
+  myNodelist[i].style.height = "50%";
+}
+  document.getElementById("memory-game").setAttribute("style","margin-left: 10%;");
+
+}
+function large(){
+const myNodelist = document.getElementsByClassName("memory-card");
+//for nodelist length
+for (let i = 0; i < 32; i++) {
+  myNodelist[i].style.display = "flex";
+  myNodelist[i].style.width = "11.6%";
+  myNodelist[i].style.height = "35%";
+  document.getElementById("memory-game").style.display = "flex";
+}
+}
+

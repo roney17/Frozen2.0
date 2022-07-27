@@ -109,7 +109,7 @@
         .arrow{
           position: absolute;
           top: 0;
-          left: 46%;
+          left: 49%;
           max-width: 25px;
         }
         .arrowSize{
@@ -126,15 +126,24 @@
         .matches{
         position: absolute;
         top: 5px;
-        right: 45px;
+        right: 25px;
         height: 125px;
         width: 170px;
       }
-       #score, .matches{
+       .arrow, #score, .matches{
         display: none;
       }
       .visible{
         display: "flex";
+      }
+      .hidden {
+        animation-name: dissolve;
+        animation-duration: 1.5s;
+        animation-fill-mode: forwards;
+      }
+      @keyframes dissolve {
+        from {visibility: visible;}
+        to {visibility: hidden;}
       }
     
     </style>
@@ -151,7 +160,7 @@
         <div class="game" onclick="startGame(); large()"> <a id="large"><img src="../img/bluey.jpg"></a></div>
       </div>
     </div>
-  <div><a href="/"><img class="arrow" id="arrow" src="img/backarrow.png"></a></div>
+  <a href="/index.html"><div><img class="arrow" id="arrow" src="img/backarrow.png"></div></a>
   <div id="score"><h2>Score: <span id="pairsClicked">0</span></h2></div>
   <div class="matches" id="matches" data-character="match"><img class="back-face" id="matchedCard" data-character="match" src="../img/blueyback.png"></div>
     <section class="memory-game" id="memory-game" style="display: none;">

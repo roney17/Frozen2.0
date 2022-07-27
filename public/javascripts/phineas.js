@@ -101,5 +101,7 @@ function large(){
     myNodelist[i].style.display = "flex";
 
   document.getElementById("memory-game").style.display = "flex";
+  document.querySelectorAll(".memory-card").forEach(card => card.style.width = "20%");
+
 }
 }
