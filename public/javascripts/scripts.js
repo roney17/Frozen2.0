@@ -9,6 +9,7 @@ function startGame(){
   document.getElementById("toggle").style.display = "none";
   document.getElementById("score").style.display = "flex";
   document.getElementById("arrow").style.display = "flex";
+  document.getElementById("arrow").setAttribute("href", "/frozen");
 }
 function flipCard() {
   if (lockBoard) return;
@@ -93,8 +94,8 @@ function medium(){
 const myNodelist = document.getElementsByClassName("memory-card");
 for (let i = 0; i < 20; i++) {
   myNodelist[i].style.display = "flex";
-  myNodelist[i].style.width = "14%";
-  myNodelist[i].style.height = "50%";
+  myNodelist[i].style.width = "13.8%";
+  myNodelist[i].style.height = "41%";
 }
   document.getElementById("memory-game").setAttribute("style","margin-left: 10%;");
 
@@ -109,4 +110,8 @@ for (let i = 0; i < 32; i++) {
   document.getElementById("memory-game").style.display = "flex";
 }
 }
+
+
+
+
 

@@ -3,6 +3,8 @@ function startGame(){
     document.getElementById("score").style.display = "flex";
     document.getElementById("matches").style.display = "flex";
     document.getElementById("arrow").style.display = "flex";
+  document.getElementById("arrow").setAttribute("href", "/phineas");
+
     
 }
 
@@ -84,6 +86,8 @@ function small(){
     const myNodelist = document.getElementsByClassName("memory-card");
     for (let i = 0; i < 14; i++) {
       myNodelist[i].style.display = "flex";
+      myNodelist[i].style.width = "18%";
+      myNodelist[i].style.height = "52%";
     }
     document.getElementById("memory-game").style.display = "flex";
 }
@@ -99,9 +103,8 @@ function large(){
   //for nodelist length
   for (let i = 0; i < 32; i++) {
     myNodelist[i].style.display = "flex";
-
+    myNodelist[i].style.width = "14%";
+    myNodelist[i].style.height = "32%";
   document.getElementById("memory-game").style.display = "flex";
-  document.querySelectorAll(".memory-card").forEach(card => card.style.width = "20%");
-
 }
 }

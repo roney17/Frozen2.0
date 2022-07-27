@@ -130,7 +130,7 @@
         height: 125px;
         width: 170px;
       }
-       .arrow, #score, .matches{
+      #score, .matches{
         display: none;
       }
       .visible{
@@ -153,14 +153,13 @@
 <body>
     <div id="toggle">
       <div class="title">Select Size </div>
-      <div><a href="/"><img class="arrowSize" id="arrow" src="img/backarrow.png"></a></div>
       <div class="choose-game">
         <div class="game" onclick="startGame(); small();"><a id="small"><img src="../img/bluey.jpg"></a></div>
         <div class="game" onclick="startGame(); medium()"> <a id="medium" ><img src="../img/bluey.jpg"></a></div>
         <div class="game" onclick="startGame(); large()"> <a id="large"><img src="../img/bluey.jpg"></a></div>
       </div>
     </div>
-  <a href="/index.html"><div><img class="arrow" id="arrow" src="img/backarrow.png"></div></a>
+  <a href="/" id="arrow"><div><img class="arrow"  src="img/backarrow.png"></div></a>
   <div id="score"><h2>Score: <span id="pairsClicked">0</span></h2></div>
   <div class="matches" id="matches" data-character="match"><img class="back-face" id="matchedCard" data-character="match" src="../img/blueyback.png"></div>
     <section class="memory-game" id="memory-game" style="display: none;">

@@ -3,6 +3,8 @@ function startGame(){
     document.getElementById("score").style.display = "flex";
     document.getElementById("matches").style.display = "flex";
     document.getElementById("arrow").style.display = "flex";
+  document.getElementById("arrow").setAttribute("href", "/bluey");
+
     
 }
 
